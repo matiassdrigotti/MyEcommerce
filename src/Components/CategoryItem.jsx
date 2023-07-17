@@ -2,11 +2,10 @@ import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-na
 import React from 'react'
 import Card from './Card'
 
-const CategoryItem = ({
-  item,
-  navigation
-}) => {
+const CategoryItem = ({ item, navigation }) => {
+
   const {width} = useWindowDimensions()
+  
   return (
     <View style = {{width: width, alignItems: 'center'}}>
       <Pressable

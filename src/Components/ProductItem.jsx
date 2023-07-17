@@ -2,10 +2,8 @@ import { Image, Pressable, StyleSheet, Text, useWindowDimensions } from "react-n
 import React from "react";
 import Card from "./Card";
 
-const ProductItem = ({ 
-    item,
-    navigation
-}) => {
+const ProductItem = ({ item, navigation }) => {
+  
     const { height, width } = useWindowDimensions();
 
     const onSelect = (id) => {

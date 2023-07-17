@@ -1,4 +1,4 @@
-import { Pressable, SafeAreaView, StyleSheet, Text, ImageBackground,  } from 'react-native'
+import { Pressable, SafeAreaView, StyleSheet, Text, } from 'react-native'
 import React from 'react'
 import Header from '../Components/Header'
 import ItemListCategory from '../Screens/ItemListCategory'
@@ -10,44 +10,40 @@ import { StatusBar } from 'react-native'
 
 const Stack = createNativeStackNavigator()
 
-const image = {uri: 'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/06/Fondo.Madera.10.jpg'};
-
 const Navigator = () => {
   return (
     <SafeAreaView style = {styles.container}>
-        <ImageBackground source={image} resizeMode={'cover'} style={styles.image}>
-            <NavigationContainer>
-                <Stack.Navigator
-                    initialRouteName='Home'
-                    screenOptions={
-                        ({route, navigation}) => (
-                            {
-                                header: () => {
-                                    return <Header
-                                        route = {route}
-                                        navigation = {navigation}
-                                    />
-                                },
+        <NavigationContainer>
+            <Stack.Navigator
+                initialRouteName='Home'
+                screenOptions={
+                    ({route, navigation}) => (
+                        {
+                            header: () => {
+                                return <Header
+                                    route = {route}
+                                    navigation = {navigation}
+                                />
+                            },
         
-                            }
-                        )
-                    }            
-                >
-                    <Stack.Screen 
-                        name='Home'
-                        component={Home}
-                    />
-                    <Stack.Screen
-                        name='ItemListCategory'
-                        component={ItemListCategory}
-                    />
-                    <Stack.Screen
-                        name='Detail'
-                        component={ItemDetail}
-                    />
-                </Stack.Navigator>
-            </NavigationContainer>
-        </ImageBackground>
+                        }
+                    )
+                }            
+            >
+                <Stack.Screen 
+                    name='Home'
+                    component={Home}
+                />
+                <Stack.Screen
+                    name='ItemListCategory'
+                    component={ItemListCategory}
+                />
+                <Stack.Screen
+                    name='Detail'
+                    component={ItemDetail}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     </SafeAreaView>
     
   )
@@ -57,12 +53,7 @@ export default Navigator;
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
       paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
-    },
-    image: {
-      flex: 1,
-      justifyContent: 'center',
     },
   })
 
