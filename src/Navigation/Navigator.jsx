@@ -1,4 +1,4 @@
-import { Pressable, SafeAreaView, StyleSheet, Text, } from 'react-native'
+import { SafeAreaView, StyleSheet, Platform,  } from 'react-native'
 import React from 'react'
 import Header from '../Components/Header'
 import ItemListCategory from '../Screens/ItemListCategory'
@@ -53,6 +53,7 @@ export default Navigator;
 
 const styles = StyleSheet.create({
     container: {
+      flex: 1,
       paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
     },
   })

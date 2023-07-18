@@ -10,7 +10,7 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-  //Acá se manejará el estado para seleccionar una category y un producto
+  
 
   return (
     <Navigator/>

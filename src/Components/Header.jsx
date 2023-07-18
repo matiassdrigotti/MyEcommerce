@@ -27,22 +27,24 @@ export default Header;
 
 const styles = StyleSheet.create({
     containerHeader: {
-        Color: colors.lightPink,
-        //backgroundColor: colors.azulClaro,
+        backgroundColor: colors.azulClaro,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        paddingVertical: 15,
+        height: 130,
         position: "relative",
     },
     text: {
-        fontSize: 35,
+        color: 'white',
+        fontSize: 30,
+        width: '60%',
+        textAlign: 'center',
         fontFamily: "Josefin",
     },
     pressable: {
         position: "absolute",
         right: 30,
-        top: "50%",
+        top: "45%",
     },
 });
 

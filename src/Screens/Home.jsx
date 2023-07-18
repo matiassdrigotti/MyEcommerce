@@ -1,6 +1,5 @@
 import { FlatList, StyleSheet, Text, View, ImageBackground } from 'react-native'
 import React from 'react'
-import { colors } from '../Global/Colors'
 import categories from '../Data/categories.json'
 import CategoryItem from '../Components/CategoryItem'
 
@@ -12,6 +11,7 @@ const image = {uri:'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode={'cover'} style={styles.image}>
         <FlatList
+            style= {styles.flat}
             data = {categories}
             keyExtractor={category => category}
             renderItem={({item}) => <CategoryItem item={item} navigation = {navigation}/>}
@@ -27,12 +27,15 @@ export default Home
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      
+    },
+    flat: {
+      marginTop: 30,
+    },  
     image: {
       flex: 1,
       justifyContent: 'center',
-      },  
-    }
+      }
+       
 })
 
 

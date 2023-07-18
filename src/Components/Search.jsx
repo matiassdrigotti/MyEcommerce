@@ -4,11 +4,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { colors } from '../Global/Colors';
 
-const Search = ({
-    onSearch,
-    error = "",
-    goBack
-}) => {
+const Search = ({ onSearch, error = "", goBack }) => {
+    
     const [keyword, setKeyword] = useState("")
     const {width, height}  = useWindowDimensions()
 
