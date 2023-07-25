@@ -1,55 +1,76 @@
-import { SafeAreaView, StyleSheet, Platform,  } from 'react-native'
+import { Platform, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Header from '../Components/Header'
-import ItemListCategory from '../Screens/ItemListCategory'
-import ItemDetail from '../Screens/ItemDetail'
-import Home from '../Screens/Home'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { StatusBar } from 'react-native'
 
-const Stack = createNativeStackNavigator()
+import { NavigationContainer } from '@react-navigation/native'
+import { StatusBar } from 'react-native'
+import ShopStack from './ShopStack'
+import CartStack from './CartStack'
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Fontisto } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import OrderStack from './OrderStack'
+
+const Tab = createBottomTabNavigator()
 
 const Navigator = () => {
   return (
     <SafeAreaView style = {styles.container}>
         <NavigationContainer>
-            <Stack.Navigator
-                initialRouteName='Home'
-                screenOptions={
-                    ({route, navigation}) => (
-                        {
-                            header: () => {
-                                return <Header
-                                    route = {route}
-                                    navigation = {navigation}
-                                />
-                            },
-        
-                        }
-                    )
-                }            
+            <Tab.Navigator
+                screenOptions={{
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                    tabBarStyle: styles.tabBar,
+                }}
             >
-                <Stack.Screen 
-                    name='Home'
-                    component={Home}
+                <Tab.Screen 
+                    name='Shop'
+                    component={ShopStack}
+                    options={{
+                        tabBarIcon: ({focused}) => {
+                            return (
+                                <View>
+                                    <Fontisto name="shopping-store" size={24} color={focused ? "black": "gray"} />
+                                </View>
+                            )
+                        }
+                    }}
                 />
-                <Stack.Screen
-                    name='ItemListCategory'
-                    component={ItemListCategory}
+                <Tab.Screen
+                    name='Cart'
+                    component={CartStack}
+                    options={{
+                        tabBarIcon: ({focused}) => {
+                            return (
+                                <View>
+                                    <Foundation name="shopping-cart" size={30} color={focused ? "black": "gray"} />    
+                                </View>
+                            )
+                        }
+                    }}
                 />
-                <Stack.Screen
-                    name='Detail'
-                    component={ItemDetail}
+                <Tab.Screen
+                    name='Orders'
+                    component={OrderStack}
+                    options={{
+                        tabBarIcon: ({focused}) => {
+                            return (
+                                <View>
+                                    <FontAwesome5 name="list-ul" size={24} color={focused ? "black": "gray"} />
+                                </View>
+                            )
+                        }
+                    }}
                 />
-            </Stack.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     </SafeAreaView>
-    
   )
 }
 
-export default Navigator;
+export default Navigator
 
 const styles = StyleSheet.create({
     container: {

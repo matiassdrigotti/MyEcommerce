@@ -1,7 +1,9 @@
 import { FlatList, StyleSheet, Text, View, ImageBackground } from 'react-native'
 import React from 'react'
+
 import categories from '../Data/categories.json'
 import CategoryItem from '../Components/CategoryItem'
+import Counter from '../Components/Counter'
 
 const Home = ({ navigation }) => {
   
@@ -10,6 +12,7 @@ const image = {uri:'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode={'cover'} style={styles.image}>
+        <Counter/>
         <FlatList
             style= {styles.flat}
             data = {categories}
