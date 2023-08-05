@@ -1,11 +1,13 @@
 import { FlatList, StyleSheet, Text, View, ImageBackground } from 'react-native'
 import React from 'react'
 
-import categories from '../Data/categories.json'
 import CategoryItem from '../Components/CategoryItem'
 import Counter from '../Components/Counter'
+import { useGetCategoriesQuery } from '../Services/shopServices'
 
 const Home = ({ navigation }) => {
+
+const {data: categories, isLoading, isError} = useGetCategoriesQuery()
   
 const image = {uri:'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/06/Fondo.Madera.10.jpg'};
 
@@ -15,15 +17,18 @@ const image = {uri:'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/
         <Counter/>
         <FlatList
             style= {styles.flat}
-            data = {categories}
             keyExtractor={category => category}
             renderItem={({item}) => <CategoryItem item={item} navigation = {navigation}/>}
             showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.wrapper}
+            horizontal={true}
         />
       </ImageBackground> 
     </View>
   )
 }
+
 
 export default Home
 

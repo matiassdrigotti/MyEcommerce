@@ -6,7 +6,8 @@ import store from './src/Store/store';
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    'Josefin': require('./src/Assets/Fonts/Josefin_Sans/JosefinSans-Regular.ttf')
+    'Josefin': require('./src/Assets/Fonts/Josefin_Sans/JosefinSans-Regular.ttf'),
+    'Ubuntu': require('./src/Assets/Fonts/Ubuntu/Ubuntu-Regular.ttf')
   });
 
   if (!fontsLoaded) {
