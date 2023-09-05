@@ -85,7 +85,7 @@ const SignupScreen = ({ navigation }) => {
                 />
                 <SubmitButton onPress={onSubmit} title="Send" />
                 <Text style={styles.sub}>Already have an account?</Text>
-                <Pressable onPress={() => navigation.navigate("Login")}>
+                <Pressable onPress={() => navigation.navigate("Login")} style={styles.cajaSubLink}>
                     <Text style={styles.subLink}>Login</Text>
                 </Pressable>
             </View>
@@ -108,22 +108,38 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.lightPink,
+        
         gap: 15,
         paddingVertical: 20,
         borderRadius: 10,
     },
     title: {
-        fontSize: 22,
+        color:'black',
+        opacity: 0.6,
+        fontSize: 25,
         fontFamily: "Josefin",
+        
     },
     sub: {
-        fontSize: 14,
+        fontSize: 18,
         fontFamily: "Josefin",
         color: "black",
+        
+    },
+    cajaSubLink : {
+        backgroundColor: colors.azulClaro,
+        width: 100,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10
     },
     subLink: {
-        fontSize: 14,
+        
+        fontSize: 20,
         fontFamily: "Josefin",
-        color: "blue",
+        color: 'white',
+        
+        
     },
 });

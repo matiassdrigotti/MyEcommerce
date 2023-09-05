@@ -8,11 +8,7 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query'
 import { authApi } from '../Services/authServices'
 
 const store = configureStore({
-    reducer: {
-        counterReducer,
-        shopReducer,
-        cartReducer,
-        userReducer,
+    reducer: { counterReducer, shopReducer, cartReducer, userReducer,
         [shopApi.reducerPath]: shopApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
     },

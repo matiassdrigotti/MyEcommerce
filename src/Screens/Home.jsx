@@ -14,15 +14,16 @@ const image = {uri:'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode={'cover'} style={styles.image}>
-        <Counter/>
+        
         <FlatList
-            style= {styles.flat}
+            data = {categories}
             keyExtractor={category => category}
             renderItem={({item}) => <CategoryItem item={item} navigation = {navigation}/>}
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.wrapper}
-            horizontal={true}
+            horizontal={false}
+            style={styles.flatlist}
         />
       </ImageBackground> 
     </View>
@@ -33,20 +34,41 @@ const image = {uri:'https://bandurriadeco.com.ar/tienda/wp-content/uploads/2020/
 export default Home
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
+    flex: 1,
+    alignItems: 'center'
+  },
+  wrapper: {
+    marginTop: 20,
+    gap: 20,
+    flexDirection: 'column'
+  },
+  flatlist: {
+    width: '80%',
+    
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },   
+       
+})
+
+/*
+container: {
       flex: 1,
     },
     flat: {
       marginTop: 30,
+      width: '80%',
     },  
     image: {
       flex: 1,
       justifyContent: 'center',
-      }
-       
-})
-
-
+      },
+    wrapper: {
+      gap: 20,
+    }, */
 
 
 /*
